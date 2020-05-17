@@ -1,0 +1,484 @@
+0: VM_R11 = VM_R11 + 0xFFFFFFFF
+
+4: VM_FLAGS = {VM_R11 + 0xFFFFFF01 0 32, 0x0 32 64}
+
+8: ZF = VM_FLAGS[0:32]?(0x0,0x1)
+VM_PC = {(VM_PC + 0x4)[0:32] 0 32, 0x0 32 64}
+
+c: VM_R0 = VM_R10
+
+10: VM_R1 = VM_R12
+
+14: @32[0x203880] = VM_PC[0:32] + 0x4
+
+374: VM_R3 = 0x0
+
+378: VM_R2 = VM_R0
+
+37c: VM_R2 = VM_R2 + VM_R3
+
+380: VM_R2 = {@8[{VM_R2 0 32, 0x0 32 64} + 0x203080] 0 8, 0x0 8 32}
+
+384: VM_FLAGS = {VM_R2 0 32, 0x0 32 64}
+
+388: ZF = VM_FLAGS[0:32]?(0x0,0x1)
+VM_PC = {(VM_PC + 0x4)[0:32] 0 32, 0x0 32 64}
+
+38c: VM_FLAGS = {VM_R2 + 0xFFFFFFC7 0 32, 0x0 32 64}
+
+390: ZF = VM_FLAGS[0:32]?(0x0,0x1)
+VM_PC = 0x3A4
+
+3a4: VM_FLAGS = {VM_R2 + 0xFFFFFF9A 0 32, 0x0 32 64}
+
+3a8: ZF = VM_FLAGS[0:32]?(0x0,0x1)
+VM_PC = {(VM_PC + 0x4)[0:32] 0 32, 0x0 32 64}
+
+3ac: VM_FLAGS = {VM_R2 + 0xFFFFFF9F 0 32, 0x0 32 64}
+
+3b0: ZF = VM_FLAGS[0:32]?(0x0,0x1)
+VM_PC = {(VM_PC + 0x4)[0:32] 0 32, 0x0 32 64}
+
+3b4: VM_R2 = VM_R2 + 0xFFFFFFA9
+
+3b8: VM_R4 = VM_R3
+
+3bc: VM_R4 = umod({VM_R4 0 32, 0x0 32 64}, 0x2)[0:32]
+
+3c0: VM_FLAGS = {VM_R4 + 0xFFFFFFFF 0 32, 0x0 32 64}
+
+3c4: ZF = VM_FLAGS[0:32]?(0x0,0x1)
+VM_PC = {(VM_PC + 0x4)[0:32] 0 32, 0x0 32 64}
+
+3c8: VM_R2 = (VM_R2[31:32]?({VM_R2 0 32, 0xFFFFFFFF 32 64} * 0x10,{VM_R2 0 32, 0x0 32 64} * 0x10))[0:32]
+
+3cc: VM_R5 = VM_R2
+
+3d0: ZF = 0x0
+VM_PC = 0x3E8
+
+3e8: VM_R3 = VM_R3 + 0x1
+
+3ec: ZF = 0x0
+VM_PC = 0x378
+
+3d4: VM_R2 = VM_R2 ^ VM_R5
+
+3d8: VM_R4 = VM_R3
+
+3dc: VM_R4 = VM_R4 >> 0x1
+
+3e0: VM_R4 = VM_R1 + VM_R4
+
+3e4: @8[{VM_R4 0 32, 0x0 32 64} + 0x203080] = VM_R2[0:8]
+
+3f0: VM_R0 = 0x1
+
+3f4: ZF = 0x0
+VM_PC = 0x3FC
+
+3fc: ZF = 0x1
+VM_PC = 0x18
+
+18: VM_FLAGS = {VM_R0 + 0xFFFFFFFF 0 32, 0x0 32 64}
+
+1c: ZF = VM_FLAGS[0:32]?(0x0,0x1)
+VM_PC = {(VM_PC + 0x4)[0:32] 0 32, 0x0 32 64}
+
+20: VM_R0 = VM_R8
+
+24: VM_R1 = VM_R12
+
+28: VM_R1 = VM_R1 + 0x80
+
+2c: VM_R2 = 0x0
+
+30: @32[0x203880] = VM_PC[0:32] + 0x4
+
+288: VM_R7 = {@8[{VM_R0 0 32, 0x0 32 64} + 0x203080] 0 8, 0x0 8 32}
+
+28c: VM_FLAGS = {VM_R7 0 32, 0x0 32 64}
+
+290: ZF = VM_FLAGS[0:32]?(0x0,0x1)
+VM_PC = 0x298
+
+298: VM_R6 = 0x0
+
+29c: VM_R3 = VM_R7
+
+2a0: VM_R3 = VM_R3 + VM_R6
+
+2a4: VM_R3 = (VM_R3[31:32]?({VM_R3 0 32, 0xFFFFFFFF 32 64} * 0xD,{VM_R3 0 32, 0x0 32 64} * 0xD))[0:32]
+
+2a8: VM_R3 = VM_R3 ^ 0x25
+
+2ac: VM_R3 = umod({VM_R3 0 32, 0x0 32 64}, 0xFF)[0:32]
+
+2b0: VM_R4 = VM_R6
+
+2b4: VM_R4 = VM_R2 + VM_R4
+
+2b8: VM_R4 = umod({VM_R4 0 32, 0x0 32 64}, 0x10)[0:32]
+
+2bc: VM_R4 = VM_R1 + VM_R4
+
+2c0: VM_R5 = {@8[{VM_R4 0 32, 0x0 32 64} + 0x203080] 0 8, 0x0 8 32}
+
+2c4: VM_R5 = VM_R3 ^ VM_R5
+
+2c8: @8[{VM_R4 0 32, 0x0 32 64} + 0x203080] = VM_R5[0:8]
+
+2cc: VM_R6 = VM_R6 + 0x1
+
+2d0: VM_FLAGS = {VM_R6 + 0xFFFFFFF0 0 32, 0x0 32 64}
+
+2d4: ZF = VM_FLAGS[0:32]?(0x0,0x1)
+VM_PC = 0x29C
+ 
+2d8: VM_R0 = VM_R0 + 0x1
+
+2dc: VM_R2 = VM_R2 + 0x1
+
+2e0: @32[0x203884] = VM_PC[0:32] + 0x4
+
+294: ZF = 0x0
+VM_PC = 0x2E4
+
+2e4: ZF = 0x1
+VM_PC = 0x2E4
+
+34: VM_R0 = VM_R12
+
+38: VM_R0 = VM_R0 + 0x80
+
+3c: VM_R1 = VM_R12
+
+40: VM_R1 = VM_R1 + 0x90
+
+44: @32[0x203880] = VM_PC[0:32] + 0x4
+
+7c: VM_R15 = (VM_PC + 0x4)[0:32]
+
+80: VM_R15 = VM_R15 + 0x48
+
+84: VM_R13 = 0x0
+
+88: VM_R13 = VM_R13 ^ 0xF4
+
+8c: VM_R13 = VM_R13 << 0x8
+
+90: VM_R13 = VM_R13 ^ 0xE3
+
+94: VM_R13 = VM_R13 << 0x8
+
+98: VM_R13 = VM_R13 ^ 0xD2
+
+9c: VM_R13 = VM_R13 << 0x8
+
+a0: VM_R13 = VM_R13 ^ 0xC1
+
+a4: VM_R14 = {@32[{VM_R15 0 32, 0x0 32 64} + 0x203080][24:32] 0 8, @32[{VM_R15 0 32, 0x0 32 64} + 0x203080][16:24] 8 16, @32[{VM_R15 0 32, 0x0 32 64} + 0x203080][8:16] 16 24, @8[{VM_R15 0 32, 0x0 32 64} + 0x203080] 24 32}
+
+a8: VM_R14 = VM_R13 ^ VM_R14
+
+ac: @32[{VM_R15 0 32, 0x0 32 64} + 0x203080] = {VM_R14[24:32] 0 8, VM_R14[16:24] 8 16, VM_R14[8:16] 16 24, VM_R14[0:8] 24 32}
+
+b0: VM_R14 = VM_R14 << 0x18
+
+b4: VM_R14 = VM_R14 >> 0x18
+
+b8: VM_FLAGS = {VM_R14 + 0xFFFFFF81 0 32, 0x0 32 64}
+
+bc: ZF = VM_FLAGS[0:32]?(0x0,0x1)
+VM_PC = {(VM_PC + 0x4)[0:32] 0 32, 0x0 32 64}
+
+c0: VM_R15 = VM_R15 + 0x4
+
+c4: ZF = 0x0
+VM_PC = 0xA4
+
+c8: VM_R3 = 0x0
+
+cc: VM_R2 = VM_R0
+
+d0: VM_R2 = {@8[{VM_R2 0 32, 0x0 32 64} + 0x203080] 0 8, 0x0 8 32}
+
+d4: VM_R2 = (VM_R2[31:32]?({VM_R2 0 32, 0xFFFFFFFF 32 64} * 0x3,{VM_R2 0 32, 0x0 32 64} * 0x3))[0:32]
+
+d8: VM_R2 = VM_R2 ^ 0xFF
+
+dc: @8[{VM_R1 0 32, 0x0 32 64} + 0x203080] = VM_R2[0:8]
+
+e0: VM_R3 = VM_R3 + 0x1
+
+e4: VM_FLAGS = {VM_R3 + 0xFFFFFFB0 0 32, 0x0 32 64}
+
+e8: ZF = VM_FLAGS[0:32]?(0x0,0x1)
+VM_PC = {(VM_PC + 0x4)[0:32] 0 32, 0x0 32 64}
+
+ec: VM_R0 = VM_R0 + 0x1
+
+f0: VM_R1 = VM_R1 + 0x1
+
+f4: ZF = 0x0
+VM_PC = 0xCC
+
+f8: ZF = 0x1
+VM_PC = 0x48
+
+48: VM_R0 = VM_R12
+
+4c: VM_R1 = VM_R0
+
+50: VM_R1 = VM_R1 + 0xFF
+
+54: VM_R1 = VM_R1 + 0x1
+
+58: @32[0x203880] = VM_PC[0:32] + 0x4
+
+fc: VM_R15 = (VM_PC + 0x4)[0:32]
+
+100: VM_R15 = VM_R15 + 0x48
+
+104: VM_R13 = 0x0
+
+108: VM_R13 = VM_R13 ^ 0xA1
+
+10c: VM_R13 = VM_R13 << 0x8
+
+110: VM_R13 = VM_R13 ^ 0xB2
+
+114: VM_R13 = VM_R13 << 0x8
+
+118: VM_R13 = VM_R13 ^ 0xC3
+
+11c: VM_R13 = VM_R13 << 0x8
+
+120: VM_R13 = VM_R13 ^ 0xD4
+
+124: VM_R14 = {@32[{VM_R15 0 32, 0x0 32 64} + 0x203080][24:32] 0 8, @32[{VM_R15 0 32, 0x0 32 64} + 0x203080][16:24] 8 16, @32[{VM_R15 0 32, 0x0 32 64} + 0x203080][8:16] 16 24, @8[{VM_R15 0 32, 0x0 32 64} + 0x203080] 24 32}
+
+128: VM_R14 = VM_R13 ^ VM_R14
+
+12c: @32[{VM_R15 0 32, 0x0 32 64} + 0x203080] = {VM_R14[24:32] 0 8, VM_R14[16:24] 8 16, VM_R14[8:16] 16 24, VM_R14[0:8] 24 32}
+
+130: VM_R14 = VM_R14 << 0x18
+
+134: VM_R14 = VM_R14 >> 0x18
+
+138: VM_FLAGS = {VM_R14 + 0xFFFFFF81 0 32, 0x0 32 64}
+
+13c: ZF = VM_FLAGS[0:32]?(0x0,0x1)
+VM_PC = {(VM_PC + 0x4)[0:32] 0 32, 0x0 32 64}
+
+140: VM_R15 = VM_R15 + 0x4
+
+144: ZF = 0x0
+VM_PC = 0x124
+
+148: VM_R6 = VM_R0
+
+14c: VM_R6 = VM_R6 + 0x60
+
+150: VM_R7 = VM_R0
+
+154: VM_R15 = 0x0
+
+158: VM_R5 = 0x0
+
+15c: VM_R4 = VM_R0
+
+160: VM_R4 = VM_R4 + VM_R5
+
+164: VM_R3 = {@8[{VM_R4 0 32, 0x0 32 64} + 0x203080] 0 8, 0x0 8 32}
+
+168: VM_R4 = VM_R1
+
+16c: VM_R4 = VM_R4 + VM_R5
+
+170: @8[{VM_R4 0 32, 0x0 32 64} + 0x203080] = VM_R3[0:8]
+
+174: VM_R5 = VM_R5 + 0x1
+
+178: VM_FLAGS = {VM_R5 + 0xFFFFFFF0 0 32, 0x0 32 64}
+
+17c: ZF = VM_FLAGS[0:32]?(0x0,0x1)
+VM_PC = {(VM_PC + 0x4)[0:32] 0 32, 0x0 32 64}
+
+180: ZF = 0x0
+VM_PC = 0x15C
+
+184: VM_R3 = VM_R0
+
+188: VM_R3 = VM_R3 + 0x50
+
+18c: VM_R4 = VM_R0
+
+190: VM_R5 = VM_R7
+
+194: @128[VM_R5 + 0x203080] = AESENC(@128[VM_R3 + 0x203080], @128[VM_R4 + 0x203080])
+ZF = 0x0
+VM_PC = 0x198
+
+198: VM_R3 = VM_R0
+
+19c: VM_R3 = VM_R3 + 0x40
+
+1a0: VM_R4 = VM_R6
+
+1a4: VM_R4 = VM_R4 + 0x10
+
+1a8: VM_R5 = VM_R7
+
+1ac: VM_R5 = VM_R5 + 0x50
+
+1b0: @128[VM_R5 + 0x203080] = AESENC(@128[VM_R3 + 0x203080], @128[VM_R4 + 0x203080])
+ZF = 0x0
+VM_PC = 0x1B4
+
+1b4: VM_R3 = VM_R0
+
+1b8: VM_R3 = VM_R3 + 0x30
+
+1bc: VM_R4 = VM_R6
+
+1c0: VM_R4 = VM_R4 + 0x10
+
+1c4: VM_R5 = VM_R7
+
+1c8: VM_R5 = VM_R5 + 0x40
+
+1cc: @128[VM_R5 + 0x203080] = AESENC(@128[VM_R3 + 0x203080], @128[VM_R4 + 0x203080])
+ZF = 0x0
+VM_PC = 0x1D0
+
+1d0: VM_R3 = VM_R0
+
+1d4: VM_R3 = VM_R3 + 0x20
+
+1d8: VM_R4 = VM_R0
+
+1dc: VM_R4 = VM_R4 + 0x30
+
+1e0: VM_R5 = VM_R7
+
+1e4: VM_R5 = VM_R5 + 0x30
+
+1e8: @128[VM_R5 + 0x203080] = AESENC(@128[VM_R3 + 0x203080], @128[VM_R4 + 0x203080])
+ZF = 0x0
+VM_PC = 0x1EC
+
+1ec: VM_R3 = VM_R0
+
+1f0: VM_R3 = VM_R3 + 0x10
+
+1f4: VM_R4 = VM_R6
+
+1f8: VM_R5 = VM_R7
+
+1fc: VM_R5 = VM_R5 + 0x20
+
+200: @128[VM_R5 + 0x203080] = AESENC(@128[VM_R3 + 0x203080], @128[VM_R4 + 0x203080])
+ZF = 0x0
+VM_PC = 0x204
+
+204: VM_R3 = VM_R1
+
+208: VM_R4 = VM_R6
+
+20c: VM_R5 = VM_R7
+
+210: VM_R5 = VM_R5 + 0x10
+
+214: @128[VM_R5 + 0x203080] = AESENC(@128[VM_R3 + 0x203080], @128[VM_R4 + 0x203080])
+ZF = 0x0
+VM_PC = 0x218
+
+218: VM_R15 = VM_R15 + 0x1
+
+21c: VM_FLAGS = {VM_R15 + 0xFFFFFFE0 0 32, 0x0 32 64}
+
+220: ZF = VM_FLAGS[0:32]?(0x0,0x1)
+VM_PC = {(VM_PC + 0x4)[0:32] 0 32, 0x0 32 64}
+
+224: ZF = 0x0
+VM_PC = 0x158
+
+228: ZF = 0x1
+VM_PC = 0x5C
+
+5c: VM_R0 = VM_R12
+
+60: VM_R1 = VM_R12
+
+64: VM_R1 = VM_R1 + 0x80
+
+68: VM_R2 = 0x60
+
+6c: @32[0x203880] = VM_PC[0:32] + 0x4
+
+2e8: VM_R15 = (VM_PC + 0x4)[0:32]
+
+2ec: VM_R15 = VM_R15 + 0x48
+
+2f0: VM_R13 = 0x0
+
+2f4: VM_R13 = VM_R13 ^ 0xAA
+
+2f8: VM_R13 = VM_R13 << 0x8
+
+2fc: VM_R13 = VM_R13 ^ 0xBB
+
+300: VM_R13 = VM_R13 << 0x8
+
+304: VM_R13 = VM_R13 ^ 0xCC
+
+308: VM_R13 = VM_R13 << 0x8
+
+30c: VM_R13 = VM_R13 ^ 0xDD
+
+310: VM_R14 = {@32[{VM_R15 0 32, 0x0 32 64} + 0x203080][24:32] 0 8, @32[{VM_R15 0 32, 0x0 32 64} + 0x203080][16:24] 8 16, @32[{VM_R15 0 32, 0x0 32 64} + 0x203080][8:16] 16 24, @8[{VM_R15 0 32, 0x0 32 64} + 0x203080] 24 32}
+
+314: VM_R14 = VM_R13 ^ VM_R14
+
+318: @32[{VM_R15 0 32, 0x0 32 64} + 0x203080] = {VM_R14[24:32] 0 8, VM_R14[16:24] 8 16, VM_R14[8:16] 16 24, VM_R14[0:8] 24 32}
+
+31c: VM_R14 = VM_R14 << 0x18
+
+320: VM_R14 = VM_R14 >> 0x18
+
+324: VM_FLAGS = {VM_R14 + 0xFFFFFF81 0 32, 0x0 32 64}
+
+328: ZF = VM_FLAGS[0:32]?(0x0,0x1)
+VM_PC = {(VM_PC + 0x4)[0:32] 0 32, 0x0 32 64}
+
+32c: VM_R15 = VM_R15 + 0x4
+
+330: ZF = 0x0
+VM_PC = 0x310
+
+334: VM_R3 = 0x0
+
+338: VM_R4 = VM_R0
+
+33c: VM_R5 = VM_R1
+
+340: VM_R4 = VM_R3 + VM_R4
+
+344: VM_R5 = VM_R3 + VM_R5
+
+348: VM_R4 = {@8[{VM_R4 0 32, 0x0 32 64} + 0x203080] 0 8, 0x0 8 32}
+
+34c: VM_R5 = {@8[{VM_R5 0 32, 0x0 32 64} + 0x203080] 0 8, 0x0 8 32}
+
+350: VM_FLAGS = {VM_R4 + -VM_R5 0 32, 0x0 32 64}
+
+354: ZF = VM_FLAGS[0:32]?(0x0,0x1)
+VM_PC = 0x36C
+
+36c: VM_R0 = 0x0
+
+370: ZF = 0x1
+VM_PC = 0x70
+
+70: EXIT

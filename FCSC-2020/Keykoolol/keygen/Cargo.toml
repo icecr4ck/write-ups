@@ -1,0 +1,10 @@
+[package]
+name = "keygen_keykoolol"
+version = "0.1.0"
+authors = ["Hugo Porcher"]
+edition = "2020"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+hex = "0.4.2"
